@@ -79,12 +79,11 @@ class DBStorage:
         '''get method
         retreive one object based on the class and its ID or none if not found
         '''
-        if cls in class.values() and id and type(id) == str:
-            d_obj = self.all(cls)
-            for key.value in d_obj.items():
-                if key.split(".")[1] == id:
-                    return value
-                return None
+        for key, value in d_obj.items():
+            if key.split(".")[1] == id:
+                return value
+            return None
+
 
     def count(self, cls=None):
         '''count:
